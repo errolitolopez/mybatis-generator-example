@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <classPathEntry location="mysql-connector-java-5.1.49.jar"/>
+    <classPathEntry location="postgresql-42.3.1.jar"/>
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
@@ -15,9 +15,9 @@
         </commentGenerator>
 
         <jdbcConnection
-                driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/test_new?useSSL=false"
-                userId="root"
+                driverClass="org.postgresql.Driver"
+                connectionURL="jdbc:postgresql://localhost:5432/postgres?currentSchema=mybatis"
+                userId="postgres"
                 password="password">
         </jdbcConnection>
 
@@ -33,7 +33,7 @@
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.dao" targetProject="../src/main/java"/>
 
-        <table tableName="T_USER" domainObjectName="TUser">
+        <table tableName="t_user" domainObjectName="TUser">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>
